@@ -5,14 +5,26 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>chatbot</title>
     <link href="./css/common.css" rel="stylesheet">
+    <link href="./css/chat.css" rel="stylesheet">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
 </head>
 <body>
-<div style="height:80%">Test</div>
-<div>
-    <p class="text-center">Test</p>
-</div>
-<div>Test2</div>
-
+    <nav id="nav_container">
+        <p class="text-center vertical-center">코치 이름</p>
+    </nav>
+    <div id="chat_container">
+        CHAT
+    </div>
+    <div id="input_container" class="row">
+        <div class="form-group col-xs-10 col-md-10">
+            <input type="text" class="form-control">
+        </div>
+        <div class="btn-group col-xs-2 col-md-2">
+            <p id="msg_send_btn" class="text-center vertical-center">전송</p>
+        </div>
+    </div>
+    <div id="cmd_container">
+        CMD
+    </div>
 </body>
 </html>
