@@ -1,8 +1,17 @@
+/*background gradient*/
+
+#background_gradient {
+    background: #401c88;
+    /* Old browsers */
+    background: linear-gradient(135deg, #401C88 50%, #FFCDBC 92%);
+}
+
+
 /*comment container*/
 
 #comment_container {
     height: 30%;
-    background-color: #60579D;
+    /*background-color: #60579D;*/
 }
 
 #comment_container >p {
@@ -16,7 +25,7 @@
 
 #coach_select_container {
     height: 55%;
-    background-color: #62279D;
+    /*background-color: #62279D;*/
 }
 
 #coach_select_container .btn-left-arrow {
@@ -54,6 +63,18 @@
 }
 
 
+/* TODO: for carousel
+div > div > div> img 어덯게 ??*/
+
+#coach_select_container .coach-carousel>img {
+    width: 55%;
+}
+
+.carousel-background {
+    background-image: none !important;
+}
+
+
 /*end coach select container*/
 
 
@@ -61,7 +82,7 @@
 
 #coach_confirm_container {
     height: 15%;
-    background-color: #30579D;
+    /*background-color: #30579D;*/
     text-align: center;
 }
 
