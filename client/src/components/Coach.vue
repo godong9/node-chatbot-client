@@ -14,17 +14,17 @@
         <!-- Indicators -->
         <!-- Wrapper for slides -->
         <div class=" carousel-inner " role="listbox">
-          <div class="item active" data-type="kindman">
+          <div class="item active" data-id="1">
             <img src="../assets/images/coach_image_kindman.png" style="width:60%; margin:0 auto">
           </div>
-          <div class="item" data-type="kindwoman">
+          <div class="item" data-id="2">
             <img src="../assets/images/coach_image_kindwoman.png" style="width:60%; margin:0 auto">
           </div>
-          <div class="item" data-type="angry">
-            <img src="../assets/images/coach_image_angry.png" style="width:60%; margin:0 auto">
-          </div>
-          <div class="item" data-type="odd">
+          <div class="item" data-id="3">
             <img src="../assets/images/coach_image_odd.png" style="width:60%; margin:0 auto">
+          </div>
+          <div class="item" data-id="4">
+            <img src="../assets/images/coach_image_angry.png" style="width:60%; margin:0 auto">
           </div>
         </div>
         <!-- Controls -->
@@ -56,8 +56,12 @@
     },
     methods: {
       coach_confirm(){
-
-        alert($('#carousel-example-generic .item.active').data('type'));
+        let params = {
+          coachId: $('#carousel-example-generic .item.active').data('id')
+        };
+        HttpUtil.putData('/users', params, function(err, data) {
+          console.log('change coach id');
+        });
 //        alert($('#carousel-example-generic .item.active').index());
       },
     }

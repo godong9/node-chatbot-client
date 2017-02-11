@@ -52,10 +52,19 @@
           }
           //로그인 되어있음
           console.log(response.authResponse.accessToken);
-          Cookies.set('fb_token', response.authResponse.accessToken);
+//          Cookies.set('accessToken', response.authResponse.accessToken);
           /**
            *서버에 토큰 확인 요청 보내기
            */
+          let params = {
+            facebookToken: response.authResponse.accessToken
+          };
+          HttpUtil.postData('/users/login', params, function(err, data) {
+            console.log('change coach id');
+            console.log(data);
+          });
+
+
 //          if (location.pathname == '/') {
 //            location.href = "/coach";
 //          }
@@ -127,7 +136,7 @@
     height: 10%;
     color: white;
     font-size: 10px;
-    margin:10px;
+    margin: 10px;
 
   }
 </style>
