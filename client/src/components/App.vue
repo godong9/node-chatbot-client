@@ -18,7 +18,6 @@
 </template>
 
 <script>
-  import * as Cookies from "js-cookie";
   /*
    //쿠키에 로그인 페북토큰 체크
    if (Cookies.get('fb_login') == undefined) {

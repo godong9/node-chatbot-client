@@ -1,4 +1,3 @@
-import * as Cookies from "js-cookie";
 const HOST_PATH = 'https://dadocbot.herokuapp.com';
 
 function HttpUtil() {
