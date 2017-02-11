@@ -51,7 +51,6 @@
           }
           //로그인 되어있음
           console.log(response.authResponse.accessToken);
-//          Cookies.set('accessToken', response.authResponse.accessToken);
           /**
            *서버에 토큰 확인 요청 보내기
            */
@@ -59,14 +58,20 @@
             facebookToken: response.authResponse.accessToken
           };
           HttpUtil.postData('/users/login', params, function(err, data) {
-            console.log('change coach id');
-            console.log(data);
+            if (err) {
+              return alert(err);
+            }
+            if (data && data.accessToken) {
+              Cookies.set('accessToken', data.accessToken);
+            }
+
+            if (data && data.coachId) {
+              location.href = '/chat';
+            } else {
+              location.href = '/coach';
+            }
           });
 
-
-//          if (location.pathname == '/') {
-//            location.href = "/coach";
-//          }
         });
       },
     }

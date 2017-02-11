@@ -13,7 +13,6 @@ HttpUtil.getData = function(url, params, callback) {
       authorization: "bearer " + Cookies.get('accessToken')
     },
     error: function errorHandler(jqXHR) {
-      alert(jqXHR.responseText);
       callback(jqXHR.responseText || "Error");
     },
     success: function successHandler(data) {
@@ -33,7 +32,6 @@ HttpUtil.postData = function(url, params, callback) {
       authorization: "bearer " + Cookies.get('accessToken')
     },
     error: function errorHandler(jqXHR) {
-      alert(jqXHR.responseText);
       callback(jqXHR.responseText || "Error");
     },
     success: function successHandler(data) {
@@ -53,7 +51,6 @@ HttpUtil.putData = function(url, params, callback) {
       authorization: "bearer " + Cookies.get('accessToken')
     },
     error: function errorHandler(jqXHR) {
-      alert(jqXHR.responseText);
       callback(jqXHR.responseText || "Error");
     },
     success: function successHandler(data) {
@@ -73,7 +70,6 @@ HttpUtil.deleteData = function(url, params, callback) {
       authorization: "bearer " + Cookies.get('accessToken')
     },
     error: function errorHandler(jqXHR) {
-      alert(jqXHR.responseText);
       callback(jqXHR.responseText || "Error");
     },
     success: function successHandler(data) {

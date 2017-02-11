@@ -59,10 +59,12 @@
         let params = {
           coachId: $('#carousel-example-generic .item.active').data('id')
         };
-        HttpUtil.putData('/users', params, function(err, data) {
-          console.log('change coach id');
+        HttpUtil.putData('/users', params, function(err) {
+          if (err) {
+            return alert(err);
+          }
+          location.href = '/chat';
         });
-//        alert($('#carousel-example-generic .item.active').index());
       },
     }
   };
