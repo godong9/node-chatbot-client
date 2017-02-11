@@ -1,13 +1,13 @@
 <template>
-  <div class="login">
+  <div class="coach">
     <h1>{{ msg }}</h1>
-    <h2>Login Page</h2>
+    <h2>Coach Page</h2>
   </div>
 </template>
 
 <script>
 export default {
-  name: 'login',
+  name: 'coach',
   data() {
     return {
       msg: 'Welcome to Your Vue.js App',

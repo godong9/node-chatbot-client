@@ -1,17 +1,17 @@
 <template>
   <div id="app">
     <img src="./assets/logo.png">
-    <login></login>
+    <chat></chat>
   </div>
 </template>
 
 <script>
-import Login from './components/Login';
+import Chat from './components/Chat';
 
 export default {
   name: 'app',
   components: {
-    Login,
+    Chat
   },
 };
 </script>

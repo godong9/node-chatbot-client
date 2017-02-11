@@ -1,11 +1,13 @@
 import Vue from 'vue';
+import App from './App';
+import Coach from './Coach';
+import Chat from './Chat';
 
 const NotFound = { template: '<p>Page not found</p>' }
-const Home = { template: '<p>home page</p>' }
-const About = { template: '<p>about page</p>' }
 const routes = {
-  '/': Home,
-  '/about': About
+  '/': App,
+  '/coach': Coach,
+  '/chat': Chat,
 }
 
 new Vue({
