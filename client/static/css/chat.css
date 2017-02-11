@@ -1,46 +1,46 @@
 /* nav_container start */
 #nav_container {
-    height: 8%;
-    background-color: #60579D;
+  height: 8%;
+  background-color: #60579D;
 }
 
 #nav_container > p {
-    font-size: 20px;
-    color: white;
+  font-size: 20px;
+  color: white;
 }
 /* nav_container end */
 
 
 #chat_container {
-    height: 76%;
+  height: 78%;
 }
 
 /* input_container start */
 #input_container {
-    height: 8%;
-    padding: 8px;
-    margin: 0px;
+  height: 8%;
+  padding: 8px;
+  margin: 0px;
 }
 
 #input_container > div {
-    height: 100%;
-    margin: 0px;
-    padding: 0px 2px;
+  height: 100%;
+  margin: 0px;
+  padding: 0px 2px;
 }
 
 #input_container .btn-group {
-    background-color: blue;
+  background-color: blue;
 }
 
 #input_container .form-control {
-    height: 100%;
+  height: 100%;
 }
 /* input_container end */
 
 #msg_send_btn {
-    margin: 0px;
+  margin: 0px;
 }
 
 #cmd_container {
-    height: 8%;
+  height: 6%;
 }
