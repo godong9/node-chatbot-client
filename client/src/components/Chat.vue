@@ -1,7 +1,7 @@
 <template>
   <div class="chat">
         <nav id="nav_container">
-            <p class="text-center vertical-center">코치 이름</p>
+            <p class="text-center vertical-center">{{coach_name}}</p>
         </nav>
         <div id="chat_container">
             <div class="row chat-item">
@@ -83,7 +83,7 @@ export default {
   name: 'chat',
   data() {
     return {
-      msg: 'Welcome to Your Vue.js App',
+      coach_name: '무서운형',
     };
   },
 };
