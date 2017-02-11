@@ -15,6 +15,7 @@ new Vue({
   data: {
     currentRoute: window.location.pathname
   },
+  mode: 'history',
   computed: {
     ViewComponent () {
       return routes[this.currentRoute] || NotFound
