@@ -25,17 +25,12 @@
         msg: 'Welcome to Your Vue.js App',
       };
     },
+    methods: {
+      fb_login() {
+        alert('fb_login');
+      },
+    }
   };
-
-//  var vm = new Vue({
-//    el: '#comment_container',
-//    methods: {
-//      fb_login: function () {
-//        alert('fb_login');
-//
-//      }
-//    }
-//  });
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
