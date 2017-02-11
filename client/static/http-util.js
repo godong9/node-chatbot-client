@@ -1,3 +1,4 @@
+import * as Cookies from "js-cookie";
 const HOST_PATH = 'https://dadocbot.herokuapp.com';
 
 function HttpUtil() {
@@ -10,7 +11,7 @@ HttpUtil.getData = function(url, params, callback) {
     type: 'GET',
     data: params,
     headers: {
-      authorization: "bearer " + Document.cookie && Document.cookie.accessToken
+      authorization: "bearer " + Cookies.get('accessToken')
     },
     error: function errorHandler(jqXHR) {
       alert(jqXHR.responseText);
@@ -30,7 +31,7 @@ HttpUtil.postData = function(url, params, callback) {
     dataType: 'json',
     data: JSON.stringify(params),
     headers: {
-      authorization: "bearer " + Document.cookie && Document.cookie.accessToken
+      authorization: "bearer " + Cookies.get('accessToken')
     },
     error: function errorHandler(jqXHR) {
       alert(jqXHR.responseText);
@@ -50,7 +51,7 @@ HttpUtil.putData = function(url, params, callback) {
     dataType: 'json',
     data: JSON.stringify(params),
     headers: {
-      authorization: "bearer " + Document.cookie && Document.cookie.accessToken
+      authorization: "bearer " + Cookies.get('accessToken')
     },
     error: function errorHandler(jqXHR) {
       alert(jqXHR.responseText);
@@ -70,7 +71,7 @@ HttpUtil.deleteData = function(url, params, callback) {
     dataType: 'json',
     data: JSON.stringify(params),
     headers: {
-      authorization: "bearer " + Document.cookie && Document.cookie.accessToken
+      authorization: "bearer " + Cookies.get('accessToken')
     },
     error: function errorHandler(jqXHR) {
       alert(jqXHR.responseText);
