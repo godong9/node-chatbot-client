@@ -18,20 +18,15 @@
 </template>
 
 <script>
-  /*
-   //쿠키에 로그인 페북토큰 체크
-   if (Cookies.get('fb_login') == undefined) {
-   //로그인 페이지로 이동
-   console.log('go to login');
-   } else {
-   //챗 페이지로 이동
-   console.log('go to chat');
-   if (location.pathname == '/') {
-   location.href = "/chat";
-   Cookies.remove('fb_login');
-   }
-   }
-   */
+  let clickFlag = true;
+
+  //쿠키에 로그인 페북토큰 체크
+  if (Cookies.get('accessToken') != undefined) {
+    console.log('go to chat');
+    if (location.pathname == '/') {
+      location.href = "/chat";
+    }
+  }
   export default {
     name: 'coach',
     data() {
@@ -41,40 +36,44 @@
     },
     methods: {
       fb_login() {
-        //로그인 체크
-        FB.getLoginStatus(function (response) {
-          if (response.status != 'connected') {
-            //로그인해야됨
-            FB.login(function (response) {
-              console.log(response.status);
-            });
-          }
-          //로그인 되어있음
-          console.log(response.authResponse.accessToken);
-          /**
-           *서버에 토큰 확인 요청 보내기
-           */
-          let params = {
-            facebookToken: response.authResponse.accessToken
-          };
-          HttpUtil.postData('/users/login', params, function(err, data) {
-            if (err) {
-              return alert(err);
+        if (clickFlag) {
+          clickFlag = false;
+          //로그인 체크
+          FB.getLoginStatus(function (response) {
+            if (response.status != 'connected') {
+              //로그인해야됨
+              FB.login(function (response) {
+                console.log(response.status);
+              });
             }
-            if (data && data.accessToken) {
-              Cookies.set('accessToken', data.accessToken);
-            }
+            //로그인 되어있음
+            console.log(response.authResponse.accessToken);
+            /**
+             *서버에 토큰 확인 요청 보내기
+             */
+            let params = {
+              facebookToken: response.authResponse.accessToken
+            };
+            HttpUtil.postData('/users/login', params, function (err, data) {
+              if (err) {
+                clickFlag = ture;
+                return alert(err);
+              }
+              if (data && data.accessToken) {
+                Cookies.set('accessToken', data.accessToken);
+              }
 
-            if (data && data.coachId) {
-              location.href = '/chat';
-            } else {
-              location.href = '/coach';
-            }
-          });
+              if (data && data.coachId) {
+                location.href = '/chat';
+              } else {
+                location.href = '/coach';
+              }
+            });//end HttpUtil
+          });//end getLoginStatus
+        }//end clickFlag if
 
-        });
-      },
-    }
+      },//end login method
+    }//end method
   };
 
   /**

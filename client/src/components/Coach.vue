@@ -47,6 +47,7 @@
   </div>
 </template>
 <script>
+  let clickFlag = true;
   export default {
     name: 'chat',
     data() {
@@ -56,15 +57,19 @@
     },
     methods: {
       coach_confirm(){
-        let params = {
-          coachId: $('#carousel-example-generic .item.active').data('id')
-        };
-        HttpUtil.putData('/users', params, function(err) {
-          if (err) {
-            return alert(err);
-          }
-          location.href = '/chat';
-        });
+        if (clickFlag) {
+          clickFlag = false;
+          let params = {
+            coachId: $('#carousel-example-generic .item.active').data('id')
+          };
+          HttpUtil.putData('/users', params, function (err) {
+            if (err) {
+              clickFlag = true;
+              return alert(err);
+            }
+            location.href = '/chat';
+          });
+        }
       },
     }
   };
