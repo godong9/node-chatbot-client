@@ -1,0 +1,92 @@
+/*background gradient*/
+
+#background_gradient {
+    background: #401c88;
+    /* Old browsers */
+    background: linear-gradient(135deg, #401C88 50%, #FFCDBC 92%);
+}
+
+
+/*comment container*/
+
+#comment_container {
+    height: 30%;
+    /*background-color: #60579D;*/
+}
+
+#comment_container >p {
+    font-size: 20px;
+    color: white;
+    padding: 40% 0% 0% 0%;
+}
+
+
+/*start coach select container*/
+
+#coach_select_container {
+    height: 55%;
+    /*background-color: #62279D;*/
+}
+
+#coach_select_container .btn-left-arrow {
+    display: table-cell;
+    width: 20%;
+    vertical-align: middle;
+    height: 100%;
+    text-align: right;
+}
+
+#coach_select_container .btn-left-arrow>img {
+    width: 20%
+}
+
+#coach_select_container .img-coach {
+    display: table-cell;
+    width: 60%;
+    vertical-align: middle;
+    height: 100%;
+}
+
+#coach_select_container .img-coach >img {
+    width: 100%;
+}
+
+#coach_select_container .btn-right-arrow {
+    display: table-cell;
+    width: 20%;
+    vertical-align: middle;
+    height: 100%;
+}
+
+#coach_select_container .btn-right-arrow>img {
+    width: 20%
+}
+
+
+/* TODO: for carousel
+div > div > div> img 어덯게 ??*/
+
+#coach_select_container .coach-carousel>img {
+    width: 55%;
+}
+
+.carousel-background {
+    background-image: none !important;
+}
+
+
+/*end coach select container*/
+
+
+/*confirm coach container*/
+
+#coach_confirm_container {
+    height: 15%;
+    /*background-color: #30579D;*/
+    text-align: center;
+}
+
+#coach_confirm_container >img {
+    height: 50%;
+    margin: 5% 0% 5% 0%;
+}
