@@ -4,8 +4,8 @@
     background: #401c88;
     /* Old browsers */
     background: linear-gradient(135deg, #401C88 50%, #FFCDBC 92%);
+  height:100%;
 }
-
 
 /*comment container*/
 
@@ -88,5 +88,6 @@ div > div > div> img 어덯게 ??*/
 
 #coach_confirm_container >img {
     height: 50%;
-    margin: 5% 0% 5% 0%;
+  /*margin: 5% 0% 5% 0%;*/
+
 }
