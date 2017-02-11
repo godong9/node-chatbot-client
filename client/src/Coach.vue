@@ -6,7 +6,6 @@
 
 <script>
 import Coach from './components/Coach';
-
 export default {
   name: 'app',
   components: {

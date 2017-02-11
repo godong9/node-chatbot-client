@@ -91,4 +91,43 @@
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
+  #comment_container {
+    height: 35%;
+  }
+
+  #comment_container > p {
+    font-size: 25px;
+    color: white;
+    padding: 25% 0% 0% 0%;
+    text-align: center;
+  }
+
+  #coach_image_container {
+    height: 45%;
+    text-align: center;
+
+  }
+
+  #coach_image_container > img {
+    height: 60%;
+  }
+
+  #facebook_login_container {
+    height: 10%;
+    text-align: center;
+
+  }
+
+  #facebook_login_container > img {
+    width: 70%;
+    vertical-align: bottom;
+  }
+
+  #facebook_login_container > p {
+    height: 10%;
+    color: white;
+    font-size: 10px;
+    margin:10px;
+
+  }
 </style>

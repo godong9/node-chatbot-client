@@ -40,3 +40,10 @@ body{
     -ms-transform: translateY(-50%);
     transform: translateY(-50%);
 }
+
+#background_gradient {
+  background: #401c88;
+  /* Old browsers */
+  background: linear-gradient(135deg, #401C88 50%, #FFCDBC 92%);
+  height: 100%;
+}
