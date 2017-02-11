@@ -56,7 +56,7 @@
             };
             HttpUtil.postData('/users/login', params, function (err, data) {
               if (err) {
-                clickFlag = ture;
+                clickFlag = true;
                 return alert(err);
               }
               if (data && data.accessToken) {
