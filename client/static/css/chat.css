@@ -13,6 +13,7 @@
 /* chat_container start */
 #chat_container {
   height: 78%;
+  overflow-x: hidden;
   overflow-y: scroll;
 }
 
@@ -327,6 +328,7 @@ body{
   height: 6%;
   padding: 2px 12px;
   overflow-x: scroll;
+  overflow-y: hidden;
   outline: none;
 }
 
