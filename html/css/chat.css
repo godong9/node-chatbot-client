@@ -97,10 +97,10 @@ body{
     height: 0;
     left: -17px;
     right: auto;
-    top: 7px;
+    top: 9px;
     bottom: auto;
     border: 8px solid;
-    border-color: #666 #666 transparent transparent
+    border-color: #666 #666 transparent transparent;
 }
 .tri-right.left-in:after{
     content: ' ';
@@ -109,7 +109,7 @@ body{
     height: 0;
     left: -9px;
     right: auto;
-    top: 10px;
+    top: 12px;
     bottom: auto;
     border: 6px solid;
     border-color: white white transparent transparent;

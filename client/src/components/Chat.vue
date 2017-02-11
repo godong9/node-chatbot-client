@@ -4,24 +4,26 @@
             <p class="text-center vertical-center">{{coach_name}}</p>
         </nav>
         <div id="chat_container">
-            <div class="row chat-item">
+            <div v-for="item in chat_histories" class="row chat-item">
+              <div v-if="item.coach_type > 0" class="coach-chat">
                 <div class="coach-img-item col-xs-3 col-md-3">
-                    <img class="coach-img img-circle" src="../assets/images/coach_kindman_angry.gif">
+                    <img class="coach-img img-circle" :src="item.coach_img">
                 </div>
                 <div class="talk-bubble tri-right border round left-in col-xs-8 col-md-8">
-                    강남역ㅇ나ㅣ나어히ㅁ나ㅓㅇ히ㅁ넝히ㅁ넝히ㅏ먼ㅇ히ㅓㅁㄴㅇ히먼sdgsdgsdgsdgsdg
+                    {{item.text}}
                 </div>
                 <div class="col-xs-1 col-md-1">
                 </div>
-            </div>
-            <div class="row chat-item">
+              </div>
+              <div v-else class="user-chat">
                 <div class="my-img-item col-xs-4 col-md-4">
                 </div>
                 <div class="talk-bubble tri-right border round right-in col-xs-7 col-md-7">
-                    강남역ㅇ나ㅣ나어히ㅁ나ㅓㅇ히ㅁ넝히ㅁ넝히ㅏ먼ㅇ히ㅓㅁㄴㅇ히먼sdgsdgsdgsdgsdg
+                  {{item.text}}
                 </div>
                 <div class="col-xs-1 col-md-1">
                 </div>
+              </div>
             </div>
         </div>
         <div id="input_container" class="row">
@@ -34,44 +36,8 @@
         </div>
         <div id="cmd_container">
             <ul>
-              <li class="vertical-center">
-                  test
-              </li>
-              <li class="vertical-center">
-                  test
-              </li>
-              <li class="vertical-center">
-                  test
-              </li>
-              <li class="vertical-center">
-                  test
-              </li>
-              <li class="vertical-center">
-                  test
-              </li>
-              <li class="vertical-center">
-                  test
-              </li>
-              <li class="vertical-center">
-                  test
-              </li>
-              <li class="vertical-center">
-                  test
-              </li>
-              <li class="vertical-center">
-                  testdsgsdgsdgsdgsdgsdgs
-              </li>
-              <li class="vertical-center">
-                  testsdgsdgsdgsdg
-              </li>
-              <li class="vertical-center">
-                  test
-              </li>
-              <li class="vertical-center">
-                  test
-              </li>
-              <li class="vertical-center">
-                  test
+              <li v-for="item in commands" class="vertical-center">
+                  {{item.text}}
               </li>
           </ul>
         </div>
@@ -79,11 +45,65 @@
 </template>
 
 <script>
+let coach_name = '무서운형';
+let chat_histories = [
+  {
+    coach_type: 1,
+    coach_img: '/static/images/coach_1_angry.gif',
+    text: '코치대화1'
+  },
+  {
+    coach_type: 2,
+    coach_img: '/static/images/coach_1_angry.gif',
+    text: '코치대화2'
+  },
+  {
+    coach_type: 3,
+    coach_img: '/static/images/coach_1_angry.gif',
+    text: '코치대화3'
+  },
+  {
+    text: '유저대화'
+  },
+  {
+    text: '유저대화'
+  },
+];
+let commands = [
+  {
+    text: '식사 기록'
+  },
+  {
+    text: '식사 조회'
+  },
+  {
+    text: '운동 기록'
+  },
+  {
+    text: '운동 조회'
+  },
+  {
+    text: '몸무게 기록'
+  },
+  {
+    text: '몸무게 조회'
+  },
+  {
+    text: '미션 기록'
+  },
+  {
+    text: '미션 조회'
+  },
+];
+
+
 export default {
   name: 'chat',
   data() {
     return {
-      coach_name: '무서운형',
+      coach_name: coach_name,
+      chat_histories: chat_histories,
+      commands: commands
     };
   },
 };
