@@ -112,22 +112,32 @@
     methods: {
       send_message() {
         if (!this.current_message) {
-          alert("대화 내용을 입력해주세요!");
           return false;
         }
         if (this.is_sending) {
           alert("요청 중입니다. 잠시 후 다시 시도해주세요!");
           return false;
         }
-        this.chat_histories.push({
-          text: this.current_message
-        });
+
+        this.add_user_history(this.current_message);
 
         this.current_message = '';
         //TODO: is_sending 트루로 변경하고 서버로 데이터 전송 후 응답오면 is_sending 팔스로 변경
         this.is_sending = true;
         this.is_sending = false;
         $('#chat_container').animate({ scrollTop: $('#chat_container').height() }, 100);
+      },
+      add_user_history(user_message) {
+        this.chat_histories.push({
+          text: user_message
+        });
+      },
+      add_coach_history(coach_message) {
+        this.chat_histories.push({
+          coach_type: coach_message.type,
+          coach_img: coach_message.url,
+          text: coach_message.text
+        });
       },
       click_cmd(event) {
         this.current_message = $(event.target).text().trim() + ' ';
