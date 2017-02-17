@@ -93,7 +93,7 @@
             self.add_user_history(item.text);
           } else {
             item.type = 2;
-            item.emotion = 'like';
+            item.emotion = 'tell';
             self.add_coach_history(item);
           }
         }
