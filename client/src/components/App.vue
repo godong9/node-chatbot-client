@@ -60,6 +60,7 @@
                 return alert(err);
               }
               if (data && data.accessToken) {
+                Cookies.remove('accessToken');
                 Cookies.set('accessToken', data.accessToken);
               }
 
