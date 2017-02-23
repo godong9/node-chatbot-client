@@ -40,10 +40,13 @@
           clickFlag = false;
           //로그인 체크
           FB.getLoginStatus(function (response) {
-            if (response.status != 'connected') {
+            if (response.status !== 'connected' || (!response.authResponse || !response.authResponse.accessToken)) {
               //로그인해야됨
               FB.login(function (response) {
-                console.log(response.status);
+                let params = {
+                  facebookToken: response.authResponse.accessToken
+                };
+                userLogin(params)
               });
             }
             //로그인 되어있음
@@ -54,28 +57,32 @@
             let params = {
               facebookToken: response.authResponse.accessToken
             };
-            HttpUtil.postData('/users/login', params, function (err, data) {
-              if (err) {
-                clickFlag = true;
-                return alert(err);
-              }
-              if (data && data.accessToken) {
-                Cookies.remove('accessToken');
-                Cookies.set('accessToken', data.accessToken);
-              }
-
-              if (data && data.coachId) {
-                location.href = '/chat';
-              } else {
-                location.href = '/coach';
-              }
-            });//end HttpUtil
+            userLogin(params)
           });//end getLoginStatus
         }//end clickFlag if
 
       },//end login method
     }//end method
   };
+
+  function userLogin(params) {
+    HttpUtil.postData('/users/login', params, function (err, data) {
+      if (err) {
+        clickFlag = true;
+        return alert(err);
+      }
+      if (data && data.accessToken) {
+        Cookies.remove('accessToken');
+        Cookies.set('accessToken', data.accessToken);
+      }
+
+      if (data && data.coachId) {
+        location.href = '/chat';
+      } else {
+        location.href = '/coach';
+      }
+    });//end HttpUtil
+  }
 
   /**
    * [START] FB Login
