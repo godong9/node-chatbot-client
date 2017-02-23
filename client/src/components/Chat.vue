@@ -47,7 +47,7 @@
 <script>
   let is_sending = false;
   let current_message = '';
-  let coach_name = '무서운형';
+  let coach_name = '기본형(남)';
   let chat_histories = [];
   let coach_hi_message = {
     type: 1,
@@ -86,6 +86,11 @@
     data() {
       let self = this;
       let i = 0;
+
+      HttpUtil.getData('/users', {}, function(err, data) {
+        self.coach_name = data.coachType;
+      });
+
       HttpUtil.getData('/messages', {}, function(err, data) {
         for (i = 0; i < data.messages.length; i++) {
           let item = data.messages[i];
