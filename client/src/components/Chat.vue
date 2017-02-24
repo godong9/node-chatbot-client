@@ -49,11 +49,6 @@
   let current_message = '';
   let coach_name = '기본형(남)';
   let chat_histories = [];
-  let coach_hi_message = {
-    type: 1,
-    emotion: 'hi',
-    text: '안녕, 반가워!'
-  };
   let commands = [
     {
       cmd: '식사 기록'
@@ -102,7 +97,6 @@
             self.add_coach_history(item);
           }
         }
-        self.add_coach_history(coach_hi_message);
       });
 
       return {
