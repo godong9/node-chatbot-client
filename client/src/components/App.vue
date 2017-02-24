@@ -18,6 +18,7 @@
 </template>
 
 <script>
+
   let clickFlag = true;
 
   //쿠키에 로그인 페북토큰 체크
@@ -46,43 +47,24 @@
                 let params = {
                   facebookToken: response.authResponse.accessToken
                 };
-                userLogin(params)
+                FBLogin.userLogin(params)
               });
             }
             //로그인 되어있음
-            console.log(response.authResponse.accessToken);
+            console.log('already: '+response.authResponse.accessToken);
             /**
              *서버에 토큰 확인 요청 보내기
              */
             let params = {
               facebookToken: response.authResponse.accessToken
             };
-            userLogin(params)
+            FBLogin.userLogin(params)
           });//end getLoginStatus
         }//end clickFlag if
 
       },//end login method
     }//end method
   };
-
-  function userLogin(params) {
-    HttpUtil.postData('/users/login', params, function (err, data) {
-      if (err) {
-        clickFlag = true;
-        return alert(err);
-      }
-      if (data && data.accessToken) {
-        Cookies.remove('accessToken');
-        Cookies.set('accessToken', data.accessToken);
-      }
-
-      if (data && data.coachId) {
-        location.href = '/chat';
-      } else {
-        location.href = '/coach';
-      }
-    });//end HttpUtil
-  }
 
   /**
    * [START] FB Login

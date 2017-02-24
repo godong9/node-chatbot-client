@@ -47,6 +47,9 @@
   </div>
 </template>
 <script>
+console.log('access  '+Cookies.get('accessToken'));
+console.log('facebook  '+Cookies.get('facebookToken'));
+
   let clickFlag = true;
   export default {
     name: 'chat',
@@ -62,12 +65,18 @@
           let params = {
             coachId: $('#carousel-example-generic .item.active').data('id')
           };
+          let fbParams = {
+              facebookToken: Cookies.get('facebookToken')
+          };   
+     
+
           HttpUtil.putData('/users', params, function (err) {
             if (err) {
               clickFlag = true;
               return alert(err);
             }
-            location.href = '/chat';
+                 FBLogin.userLogin(fbParams);
+            // location.href = '/chat';
           });
         }
       },
