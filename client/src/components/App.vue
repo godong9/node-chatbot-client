@@ -18,9 +18,7 @@
 </template>
 
 <script>
-
   let clickFlag = true;
-
   //쿠키에 로그인 페북토큰 체크
   if (Cookies.get('accessToken') != undefined) {
     console.log('go to chat');
@@ -28,6 +26,7 @@
       location.href = "/chat";
     }
   }
+
   export default {
     name: 'coach',
     data() {
@@ -39,27 +38,8 @@
       fb_login() {
         if (clickFlag) {
           clickFlag = false;
-          //로그인 체크
-          FB.getLoginStatus(function (response) {
-            if (response.status !== 'connected' || (!response.authResponse || !response.authResponse.accessToken)) {
-              //로그인해야됨
-              FB.login(function (response) {
-                let params = {
-                  facebookToken: response.authResponse.accessToken
-                };
-                FBLogin.userLogin(params)
-              });
-            }
-            //로그인 되어있음
-            console.log('already: '+response.authResponse.accessToken);
-            /**
-             *서버에 토큰 확인 요청 보내기
-             */
-            let params = {
-              facebookToken: response.authResponse.accessToken
-            };
-            FBLogin.userLogin(params)
-          });//end getLoginStatus
+          //서버사이드 로그인
+          location.href="https://dadocbot.herokuapp.com/users/FBRedirectLogin";
         }//end clickFlag if
 
       },//end login method

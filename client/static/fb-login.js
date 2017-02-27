@@ -2,6 +2,7 @@
 
   }
   FBLogin.userLogin = function(params) {
+      Cookies.remove('facebookToken');
       Cookies.set('facebookToken', params.facebookToken);
       HttpUtil.postData('/users/login', params, function(err, data) {
           if (err) {
