@@ -4,11 +4,13 @@
 </template>
 
 <script>
-  var facebookToken = window.location.href.split(/=|&/g)[1];
-  let params = {
-    facebookToken: facebookToken
-  };
-  FBLogin.userLogin(params);
+  if (location.pathname === "/facebook") {
+    let facebookToken = window.location.href.split(/=|&/g)[1];
+    let params = {
+      facebookToken: facebookToken
+    };
+    FBLogin.userLogin(params);
+  }
 
   export default {
     name: 'coach',
