@@ -3,14 +3,13 @@
     <login></login>
   </div>
 </template>
-
 <script>
-  import Login from './components/App';
+  import Facebook from './components/Facebook';
 
   export default {
     name: 'app',
     components: {
-      Login,
+      Facebook,
     },
   };
 </script>

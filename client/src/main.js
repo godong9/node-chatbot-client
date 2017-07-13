@@ -1,11 +1,27 @@
-// The Vue build version to load with the `import` command
-// (runtime-only or standalone) has been set in webpack.base.conf with an alias.
 import Vue from 'vue';
 import App from './App';
+import Coach from './Coach';
+import Chat from './Chat';
+import Facebook from './Facebook';
 
-/* eslint-disable no-new */
+const NotFound = { template: '<p>Page not found</p>' }
+const routes = {
+  '/': App,
+  '/coach': Coach,
+  '/chat': Chat,
+  '/facebook': Facebook,
+}
+
 new Vue({
   el: '#app',
-  template: '<App/>',
-  components: { App },
-});
+  data: {
+    currentRoute: window.location.pathname
+  },
+  mode: 'history',
+  computed: {
+    ViewComponent () {
+      return routes[this.currentRoute] || NotFound
+    }
+  },
+  render (h) { return h(this.ViewComponent) }
+})
